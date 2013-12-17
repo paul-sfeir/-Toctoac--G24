@@ -1,0 +1,51 @@
+create table UTILISATEURS
+(
+	idUser numeric(10000),
+	nomUser varchar(50),
+	prenomUser varchar(30),
+	dtnUser date,
+	statutUser varchar(20),
+
+	idEvent numeric(10000),
+	idAct numeric(100),
+	
+	constraint PK_UTILISATEURS primary key (idUser),
+	constraint FK_UTILISATEURS_EVENEMENTS foreign key (idEvent)
+	references EVENEMENTS(idEvent),
+	constraint FK_UTILISATEURS_ACTIVITEES foreign key (idAct)
+	references ACTIVITEES(idAct)
+);
+
+create table EVENEMENTS
+(
+	idEvent numeric(10000),
+	nomEvent varchar(50),
+	lieuxEvent varchar(50),
+	dateEvent date,
+	nbPartEvent numeric (10000),
+
+	idUser numeric(10000),
+	idAct numeric(100),
+	
+	constraint PK_EVENEMENTS primary key (idEvent),
+	constraint FK_EVENEMENTS_UTILISATEURS foreign key (idUser) 
+	references UTILISATEURS (idUser),
+	constraint FK_EVENEMENTS_ACTIVITEES foreign key (idAct)
+	references ACTIVITEES(idAct)
+);
+
+create table ACTIVITEES
+(
+	idAct numeric(100),
+	libelAct varchar(100),
+	nbPratAct numeric(10000),
+
+	idUser numeric(10000),
+	idEvent numeric(10000),
+
+	constraint PK_ACTIVITEES primary key (idAct),
+	constraint FK_ACTIVITEES_UTILISATEURS foreign key (idUser)
+	references UTILISATEURS(idUser),
+	constraint FK_ACTIVITEES_EVENEMENTS foreign key (idEvent)
+	references EVENEMENTS(idEvent)
+);

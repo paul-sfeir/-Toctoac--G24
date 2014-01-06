@@ -1,0 +1,108 @@
+-- MySQL dump 10.10
+--
+-- Host: localhost    Database: bdTOC
+-- ------------------------------------------------------
+-- Server version	5.0.21-Debian_3-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ACTIVITEES`
+--
+
+DROP TABLE IF EXISTS `ACTIVITEES`;
+CREATE TABLE `ACTIVITEES` (
+  `idAct` decimal(65,0) NOT NULL default '0',
+  `libelAct` varchar(65) default NULL,
+  `nbPratAct` decimal(65,0) default NULL,
+  `idUser` decimal(65,0) default NULL,
+  `idEvent` decimal(65,0) default NULL,
+  PRIMARY KEY  (`idAct`),
+  KEY `FK_ACTIVITEES_UTILISATEURS` (`idUser`),
+  KEY `FK_ACTIVITEES_EVENEMENTS` (`idEvent`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ACTIVITEES`
+--
+
+
+/*!40000 ALTER TABLE `ACTIVITEES` DISABLE KEYS */;
+LOCK TABLES `ACTIVITEES` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `ACTIVITEES` ENABLE KEYS */;
+
+--
+-- Table structure for table `EVENEMENTS`
+--
+
+DROP TABLE IF EXISTS `EVENEMENTS`;
+CREATE TABLE `EVENEMENTS` (
+  `idEvent` decimal(65,0) NOT NULL default '0',
+  `nomEvent` varchar(50) default NULL,
+  `lieuxEvent` varchar(50) default NULL,
+  `dateEvent` date default NULL,
+  `nbPartEvent` decimal(65,0) default NULL,
+  `idUser` decimal(65,0) default NULL,
+  `idAct` decimal(65,0) default NULL,
+  PRIMARY KEY  (`idEvent`),
+  KEY `FK_EVENEMENTS_UTILISATEURS` (`idUser`),
+  KEY `FK_EVENEMENTS_ACTIVITEES` (`idAct`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `EVENEMENTS`
+--
+
+
+/*!40000 ALTER TABLE `EVENEMENTS` DISABLE KEYS */;
+LOCK TABLES `EVENEMENTS` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `EVENEMENTS` ENABLE KEYS */;
+
+--
+-- Table structure for table `UTILISATEURS`
+--
+
+DROP TABLE IF EXISTS `UTILISATEURS`;
+CREATE TABLE `UTILISATEURS` (
+  `idUser` decimal(65,0) NOT NULL default '0',
+  `nomUser` varchar(50) default NULL,
+  `prenomUser` varchar(30) default NULL,
+  `dtnUser` date default NULL,
+  `statutUser` varchar(20) default NULL,
+  `idEvent` decimal(65,0) default NULL,
+  `idAct` decimal(65,0) default NULL,
+  PRIMARY KEY  (`idUser`),
+  KEY `FK_UTILISATEURS_EVENEMENTS` (`idEvent`),
+  KEY `FK_UTILISATEURS_ACTIVITEES` (`idAct`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `UTILISATEURS`
+--
+
+
+/*!40000 ALTER TABLE `UTILISATEURS` DISABLE KEYS */;
+LOCK TABLES `UTILISATEURS` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `UTILISATEURS` ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+

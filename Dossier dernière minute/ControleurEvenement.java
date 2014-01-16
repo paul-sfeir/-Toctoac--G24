@@ -14,7 +14,7 @@ import vue.Vue_Evenement;
 
 /**
  * Contoleur pour la gestion des evenements
- * @author Groupe G24
+ * @author Groupe 24
  */
 public class ControleurEvenement {
 	private Vue_Evenement lambda;
@@ -70,7 +70,7 @@ public class ControleurEvenement {
 	
 	/**
 	 * Permet de connaitre le nombre d'evenments dans le calendrier (passé, actuel ou futur.<br>
-	 * @return int
+	 * @return int Nombre d'évenement
 	 */
 	public int getNbEvenement() {
 		return this.listeEvent.size();

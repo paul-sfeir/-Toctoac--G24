@@ -24,7 +24,7 @@ public class Utilisateur {
 	
 	/**
 	 * Constructeur<br>
-	 * Créer un Utilisateur par défaut.
+	 * Initialise un utilisateur par défaut.
 	 */
 	public Utilisateur () {
 		this ("", "", Utilisateur.UTILISATEUR_LAMBDA);
@@ -32,7 +32,7 @@ public class Utilisateur {
 	
 	/**
 	 * Constructeur<br>
-	 * Affecte à un utilisateur les paramétres suivant :
+	 * Initialise un utilisateur les paramétres suivant :
 	 * @param _nomUtilisateur Nom de l'utilisateur
 	 * @param _mdpUtilisateur Mot de passe de l'utilisateur
 	 * @param _satutUtilisateur
@@ -45,7 +45,7 @@ public class Utilisateur {
 	}
 	
 	/**
-	 * Ajoute un evenement a la liste des evenements parmis lequels l'utilisateur est inscrit
+	 * Ajoute un événement a la liste des événement parmis lequels l'utilisateur est inscrit
 	 * @param _e Evenement auquel l'utilisateur est inscris
 	 */
 	public void inscrire(Evenement _e) {
@@ -54,7 +54,7 @@ public class Utilisateur {
 	}
 	
 	/** 
-	 * Ajoute un evenements a la liste des evenemenbts auquels participe l'utilisateur
+	 * Ajoute un événement a la liste des événement auquels participe l'utilisateur
 	 * @param _ve Vector d'événements
 	 * @return void
 	 */

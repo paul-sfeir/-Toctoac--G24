@@ -11,6 +11,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JButton;
 
+
+/** 
+ * Vue pour afficher un utilisateur
+ * @author Groupe G24
+ */
 public class VueAfficherUtilisateurs extends JFrame {
 
 	private JPanel contentPane;
@@ -32,7 +37,7 @@ public class VueAfficherUtilisateurs extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Création de la fenêtre
 	 */
 	public VueAfficherUtilisateurs() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

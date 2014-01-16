@@ -22,7 +22,7 @@ public class ControleurEvenement {
 	
 	/**
 	 * Constructeur <br>
-	 * Créer une liste et y ajoute les evenements  
+	 * Initialise une liste et y ajoute les evenements  
 	 */
 	public ControleurEvenement() {
 		
@@ -77,9 +77,9 @@ public class ControleurEvenement {
 	}
 	
 	/**
-	 * Permet de récupérer un evenement en fonction de son rang.
-	 * @param _i 	Rang de l'evenement (stocké dans un vector)
-	 * @return Evenement
+	 * Permet de récupérer un événement en fonction de son rang.
+	 * @param _i 	Rang de l'événement (stocké dans un vector)
+	 * @return Evenement 
 	 */
 	public Evenement getEvenementAt(int _i){
 		return this.listeEvent.elementAt(_i);

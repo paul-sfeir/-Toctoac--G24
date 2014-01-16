@@ -8,7 +8,7 @@ import modele.*;
 
 /**  
  * Controleur de la vue connexion
- * @author Groupe G24
+ * @author Groupe 24
  */
 public class ControleurConnexion {
 	private ControleurDonneesUtilisateur controleurDonneesU;

@@ -8,7 +8,10 @@ import javax.swing.*;
 //import javax.swing.border.*;
 //import com.toedter.calendar.JCalendar;
 import controleur.*;
-
+/**  
+ * Vue pour la connexion
+ * @author Groupe 24
+ */
 public class VueConnexion extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private ControleurConnexion controleurC;

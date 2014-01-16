@@ -35,7 +35,8 @@ public class VueAjouterUtilisateur extends JDialog {
 	}
 
 	/**
-	 * Create the dialog.
+	 * Constructeur
+	 * Création de la vue Utilisateur
 	 */
 	public VueAjouterUtilisateur() {
 		setBounds(100, 100, 450, 185);

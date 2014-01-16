@@ -84,14 +84,18 @@ public class Vue_Evenement extends JFrame {
 	}
 */
 	/**
-	 * Create the application.
+	 * Constructeur
+	 * Initialise et lance l'application
+	 * @param _lambda
 	 */
 	public Vue_Evenement(ControleurEvenement _lambda){
 		initialize(_lambda);
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialise le contenue de la fenÃªtre.  <br>
+	 * @param _lambda
+	 * @return void
 	 */
 	private void initialize(ControleurEvenement _lambda) {
        lambda = _lambda;
@@ -124,7 +128,7 @@ public class Vue_Evenement extends JFrame {
 	       list.setBounds(10, 51, 323, 155);
 	       layeredPane.add(list);
 	       
-	       JLabel lblNewLabel = new JLabel("Liste des événements de la semaine");
+	       JLabel lblNewLabel = new JLabel("Liste des ï¿½vï¿½nements de la semaine");
 	       lblNewLabel.setBounds(10, 31, 256, 14);
 	       layeredPane.add(lblNewLabel);
 	       
@@ -169,6 +173,11 @@ public class Vue_Evenement extends JFrame {
 	       
 	}
 	
+	
+	/**
+	 * Rafraichissement de la fenÃªtre
+	 * @return void
+	 */
 	public void majVue_TocToac_Lambda (){
 		Vector<String> evnmt;
 		evnmt = new Vector<String>();

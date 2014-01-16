@@ -12,7 +12,10 @@ import javax.swing.JTextField;
 import java.awt.GridLayout;
 import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
-
+/** 
+ * Vue pout ajouter un utilisateur
+ * @author Groupe G24
+ */
 public class VueAjouterUtilisateur extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -20,9 +23,7 @@ public class VueAjouterUtilisateur extends JDialog {
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		try {
 			VueAjouterUtilisateur dialog = new VueAjouterUtilisateur();

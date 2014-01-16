@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Ecouteur de la vue evenment
- * @author Groupe G24
+ * @author Groupe 24
  */
 public class ListenerLambda implements ActionListener {
 	

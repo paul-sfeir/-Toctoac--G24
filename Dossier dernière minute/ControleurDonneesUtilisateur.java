@@ -5,9 +5,17 @@ import modele.*;
 
 import java.util.*;
 
+/**
+ * Gestion des données utilisateur
+ * @author Groupe G24
+ */
 public class ControleurDonneesUtilisateur {
 	private Vector<Utilisateur> listeUtilisateurs;
 	
+	
+	/**
+	 * Constructeur, initialise les données utilisateur
+	 */
 	public ControleurDonneesUtilisateur() {
 		this.listeUtilisateurs = new Vector<Utilisateur>();
 		
@@ -15,11 +23,20 @@ public class ControleurDonneesUtilisateur {
 		this.listeUtilisateurs.add(new Utilisateur("user2", "a", Utilisateur.ENTRAINEUR));
 		this.listeUtilisateurs.add(new Utilisateur("user3", "a", Utilisateur.UTILISATEUR_LAMBDA));
 	}
-
+	
+	/**
+	 * Retourne la liste des utilisateurs
+	 * @return Vector<Utilisateur>
+	 */
 	public Vector<Utilisateur> getListeUtilisateurs() {
 		return listeUtilisateurs;
 	}
 	
+	/**
+	 * Retourne un utilisateur en fonction de son nom.
+	 * @param _nu Le nom de l'utilisateur recherché
+	 * @return Utilisateur
+	 */
 	public Utilisateur getUtilisateur(String _nu) {
 		int i = 0;
 		Utilisateur user = null;
@@ -32,7 +49,12 @@ public class ControleurDonneesUtilisateur {
 		
 		return user;
 	}
-
+	
+	/**
+	 * Initialise la liste d'utilisateur
+	 * @param listeUtilisateurs
+	 * @return void
+	 */
 	public void setListeUtilisateurs(Vector<Utilisateur> listeUtilisateurs) {
 		this.listeUtilisateurs = listeUtilisateurs;
 	}

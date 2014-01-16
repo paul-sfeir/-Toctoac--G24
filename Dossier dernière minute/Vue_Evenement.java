@@ -34,7 +34,10 @@ import java.util.Vector;
 
 import javax.swing.border.TitledBorder;
 import javax.swing.JScrollBar;
-
+/** 
+ * Vue pour les evenements
+ * @author Groupe 24
+ */
 public class Vue_Evenement extends JFrame {
 
     private JCalendar c;

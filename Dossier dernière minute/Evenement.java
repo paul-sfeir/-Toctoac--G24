@@ -2,6 +2,10 @@ package modele;
 
 import java.util.*;
 
+/**
+ * La classe Evenement, attributs et getters et setters
+ * @author Groupe G24
+ */
 public class Evenement {
 
 	private int idEvenement;
@@ -12,10 +16,23 @@ public class Evenement {
 	private Vector<Utilisateur> listeParticipantsEvenement;
 	private int nbParticipantsEvenement;
 	
+	/**
+	 * Constructeur<br>
+	 * Créer un evenement par defaut.
+	 */
 	public Evenement () {
 		this (-1, "", new Date(), "", false);
 	}
 	
+	/**
+	 * Constructeur<br>
+	 * Créer un evenement avec les paramètres suivant :
+	 * @param _idEvenement Identifiant de l'evenement
+	 * @param _nomEvenement Nom de l'evenement
+	 * @param _lieuEvenement Lieu de l'evenement
+	 * @param _estRegulier Si l'evenement est régulier ou ponctuel
+	 * @return Evenement
+	 */
 	public Evenement (int _idEvenement, String _nomEvenement, Date _dateEvenement, String _lieuEvenement, boolean _estRegulier) {
 		this.idEvenement = _idEvenement;
 		this.nomEvenement = _nomEvenement;

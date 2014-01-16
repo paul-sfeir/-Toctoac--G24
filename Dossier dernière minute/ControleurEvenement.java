@@ -12,15 +12,23 @@ import java.util.Vector;
 import Modele.Evenement;
 import vue.Vue_Evenement;
 
+/**
+ * Contoleur pour la gestion des evenements
+ * @author Groupe G24
+ */
 public class ControleurEvenement {
 	private Vue_Evenement lambda;
 	private Vector<Evenement> listeEvent;
 	
+	/**
+	 * Constructeur <br>
+	 * CrÃ©er une liste et y ajoute les evenements  
+	 */
 	public ControleurEvenement() {
 		
 		listeEvent = new Vector<Evenement>();
 		
-		//this.enregistrerEvenementsFichier(); Rmet le fichier à 0;
+		//this.enregistrerEvenementsFichier(); Rmet le fichier ï¿½ 0;
 		this.chargerEvenementFichier();
 		
 		/*
@@ -28,15 +36,15 @@ public class ControleurEvenement {
 		
 		Calendar cal = Calendar.getInstance();
 		
-		cal.set(2014, 0, 16); //0 pour janvier, 11 décembre
+		cal.set(2014, 0, 16); //0 pour janvier, 11 dï¿½cembre
 		Date dt = cal.getTime();
 		this.listeEvent.add( new Evenement(1, "Evenement 1", dt, "Toulouse"));
 		
-		cal.set(2014, 0, 16); //0 pour janvier, 11 décembre
+		cal.set(2014, 0, 16); //0 pour janvier, 11 dï¿½cembre
 		dt = cal.getTime();
 		this.listeEvent.add( new Evenement(2, "Evenement 2", dt, "Paris"));
 		
-		cal.set(2014, 0, 16); //0 pour janvier, 11 décembre
+		cal.set(2014, 0, 16); //0 pour janvier, 11 dï¿½cembre
 		dt = cal.getTime();
 		this.listeEvent.add( new Evenement(3, "Evenement 3", dt, "Bordeaux"));
 		
@@ -45,25 +53,42 @@ public class ControleurEvenement {
 		*/
 	}
 	
+	/**
+	 * DÃ©marre la vue responsable des evenements<br>
+	 * @return void
+	 */
 	public void demarrerControleurEvenement() {
 		if (this.lambda == null)
 		{
 			this.lambda = new Vue_Evenement(this);
 			this.lambda.majVue_TocToac_Lambda();
 			this.lambda.setResizable(false); //pas de repositionnement
-			this.lambda.setLocationRelativeTo(null); //fenetre centrée
+			this.lambda.setLocationRelativeTo(null); //fenetre centrï¿½e
 			this.lambda.setVisible (true);
 		}
 	}
 	
+	/**
+	 * Permet de connaitre le nombre d'evenments dans le calendrier (passÃ©, actuel ou futur.<br>
+	 * @return int
+	 */
 	public int getNbEvenement() {
 		return this.listeEvent.size();
 	}
 	
+	/**
+	 * Permet de rÃ©cupÃ©rer un evenement en fonction de son rang.
+	 * @param _i 	Rang de l'evenement (stockÃ© dans un vector)
+	 * @return Evenement
+	 */
 	public Evenement getEvenementAt(int _i){
 		return this.listeEvent.elementAt(_i);
 	}
 	
+	/**
+	 *Enregistre les Evenements dans un fichier event.ser.<BR>
+	 *@return void
+	 */
 	public void enregistrerEvenementsFichier(){
 		
 		File fic = new File("event.ser");
@@ -89,6 +114,10 @@ public class ControleurEvenement {
 			}		
 	}
 	
+	/**
+	 *Charger des Evenements en provenance d'un fichier event.ser.<BR>
+	 *@return void
+	 */
 	public void chargerEvenementFichier(){
 		File fic = new File("event.ser");
 		Evenement read;

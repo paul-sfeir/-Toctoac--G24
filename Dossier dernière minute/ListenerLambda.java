@@ -3,6 +3,10 @@ package vue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Ecouteur de la vue evenment
+ * @author Groupe G24
+ */
 public class ListenerLambda implements ActionListener {
 	
 	private Vue_Evenement vue;

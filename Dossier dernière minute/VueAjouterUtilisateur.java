@@ -14,7 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
 /** 
  * Vue pour ajouter un utilisateur
- * @author Groupe G24
+ * @author Groupe 24
  */
 public class VueAjouterUtilisateur extends JDialog {
 

@@ -14,7 +14,7 @@ import javax.swing.JButton;
 
 /** 
  * Vue pour afficher un utilisateur
- * @author Groupe G24
+ * @author Groupe 24
  */
 public class VueAfficherUtilisateurs extends JFrame {
 

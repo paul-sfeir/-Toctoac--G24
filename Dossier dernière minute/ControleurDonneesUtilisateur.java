@@ -7,14 +7,15 @@ import java.util.*;
 
 /**
  * Gestion des données utilisateur
- * @author Groupe G24
+ * @author Groupe 24
  */
 public class ControleurDonneesUtilisateur {
 	private Vector<Utilisateur> listeUtilisateurs;
 	
 	
 	/**
-	 * Constructeur, initialise les données utilisateur
+	 * Constructeur<br>
+	 * Initialise les données utilisateur.
 	 */
 	public ControleurDonneesUtilisateur() {
 		this.listeUtilisateurs = new Vector<Utilisateur>();

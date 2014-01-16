@@ -20,7 +20,11 @@ public class VueConnexion extends JFrame implements ActionListener {
 	private JTextField champIdUtilisateur;
 	private JPasswordField champMotDePasseUtilisateur;
 	private JLabel labelIdUtilisateur, labelMotDePasseUtilisateur, labelSaisie;
-
+	
+	/**
+	 * Constructeur<br>
+	 * Création de la vue connexion.
+	 */
 	public VueConnexion(ControleurConnexion _cc) {
 		this.setBounds(700, 500, 500, 125);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

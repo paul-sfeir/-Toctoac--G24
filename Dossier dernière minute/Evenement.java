@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * La classe Evenement, attributs et getters et setters
- * @author Groupe G24
+ * @author Groupe 24
  */
 public class Evenement {
 
@@ -18,7 +18,7 @@ public class Evenement {
 	
 	/**
 	 * Constructeur<br>
-	 * Créer un evenement par defaut.
+	 * Initialise un événement par defaut.
 	 */
 	public Evenement () {
 		this (-1, "", new Date(), "", false);
@@ -26,11 +26,11 @@ public class Evenement {
 	
 	/**
 	 * Constructeur<br>
-	 * Créer un evenement avec les paramètres suivant :
-	 * @param _idEvenement Identifiant de l'evenement
-	 * @param _nomEvenement Nom de l'evenement
-	 * @param _lieuEvenement Lieu de l'evenement
-	 * @param _estRegulier Si l'evenement est régulier ou ponctuel
+	 * Initialise un événement avec les paramètres suivant :
+	 * @param _idEvenement Identifiant de l'événement
+	 * @param _nomEvenement Nom de l'événement
+	 * @param _lieuEvenement Lieu de l'événement
+	 * @param _estRegulier Si l'événement est régulier ou ponctuel
 	 * @return Evenement
 	 */
 	public Evenement (int _idEvenement, String _nomEvenement, Date _dateEvenement, String _lieuEvenement, boolean _estRegulier) {

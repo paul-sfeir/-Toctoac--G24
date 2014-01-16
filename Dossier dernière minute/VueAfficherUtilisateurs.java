@@ -37,6 +37,7 @@ public class VueAfficherUtilisateurs extends JFrame {
 	}
 
 	/**
+	 * Constructeur<br>
 	 * Création de la fenêtre
 	 */
 	public VueAfficherUtilisateurs() {

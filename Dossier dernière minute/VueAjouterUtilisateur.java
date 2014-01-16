@@ -13,7 +13,7 @@ import java.awt.GridLayout;
 import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
 /** 
- * Vue pout ajouter un utilisateur
+ * Vue pour ajouter un utilisateur
  * @author Groupe G24
  */
 public class VueAjouterUtilisateur extends JDialog {
@@ -35,7 +35,7 @@ public class VueAjouterUtilisateur extends JDialog {
 	}
 
 	/**
-	 * Constructeur
+	 * Constructeur <br>
 	 * Création de la vue Utilisateur
 	 */
 	public VueAjouterUtilisateur() {

@@ -87,7 +87,7 @@ public class Vue_Evenement extends JFrame {
 	}
 */
 	/**
-	 * Constructeur
+	 * Constructeur<br>
 	 * Initialise et lance l'application
 	 * @param _lambda
 	 */
@@ -96,7 +96,7 @@ public class Vue_Evenement extends JFrame {
 	}
 
 	/**
-	 * Initialise le contenue de la fenêtre.  <br>
+	 * Initialise le contenue de la fenêtre.
 	 * @param _lambda
 	 * @return void
 	 */

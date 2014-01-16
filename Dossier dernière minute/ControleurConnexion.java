@@ -15,7 +15,7 @@ public class ControleurConnexion {
 	
 	/**
 	 * Constructeur<br>
-	 * Reçoit les données utilisateur.
+	 * Initialise les données utilisateur avec le parametre.
 	 * @param _cdu
 	 */
 	public ControleurConnexion(ControleurDonneesUtilisateur _cdu) {

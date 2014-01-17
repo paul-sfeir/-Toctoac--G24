@@ -17,6 +17,10 @@ import modele.Evenement;
 import vue.Vue_Detail_Evenement;
 import vue.Vue_Evenement;
 
+/**
+ * Classe Controleur des evenements
+ * @author Groupe 24
+ */
 public class ControleurEvenement {
 	private Vue_Evenement lambda;
 	private Vue_Detail_Evenement det;
@@ -30,29 +34,33 @@ public class ControleurEvenement {
 	public static void setIdentifiant(int identifiant) {
 		ControleurEvenement.identifiant = identifiant;
 	}
-
+	
+	/**
+	 * Constructeur<br>
+	 * Initialise les evenements
+	 */
 	public ControleurEvenement() {
 		
 		listeEvent = new Vector<Evenement>();
 		
-		//this.enregistrerEvenementsFichier(); Remet le fichier à 0;
+		//this.enregistrerEvenementsFichier(); Remet le fichier ï¿½ 0;
 		//this.chargerEvenementFichier();
-		identifiant = 0;//listeEvent.get(listeEvent.size()-1).getIdEvenement() + 1; //on récupère l'id du dernier evenement et on lui ajoute 1 comme ça on est sur de ne jamais avoir deux id identiques.
+		identifiant = 0;//listeEvent.get(listeEvent.size()-1).getIdEvenement() + 1; //on rï¿½cupï¿½re l'id du dernier evenement et on lui ajoute 1 comme ï¿½a on est sur de ne jamais avoir deux id identiques.
 		
 		
 		// Pour tester 
 		
 		Calendar cal = Calendar.getInstance();
 		
-		cal.set(2014, 0, 16); //0 pour janvier, 11 décembre
+		cal.set(2014, 0, 16); //0 pour janvier, 11 dï¿½cembre
 		Date dt = cal.getTime();
 		this.listeEvent.add( new Evenement(1, "Evenement 1", dt, "Toulouse", false));
 		
-		cal.set(2014, 0, 16); //0 pour janvier, 11 décembre
+		cal.set(2014, 0, 16); //0 pour janvier, 11 dï¿½cembre
 		dt = cal.getTime();
 		this.listeEvent.add( new Evenement(2, "Evenement 2", dt, "Paris", false));
 		
-		cal.set(2014, 0, 16); //0 pour janvier, 11 décembre
+		cal.set(2014, 0, 16); //0 pour janvier, 11 dï¿½cembre
 		dt = cal.getTime();
 		this.listeEvent.add( new Evenement(3, "Evenement 3", dt, "Bordeaux", true));
 		
@@ -61,17 +69,26 @@ public class ControleurEvenement {
 		
 	}
 	
+	/**
+	 * DÃ©marre les controleur evenement<br>
+	 * @return void
+	 */
 	public void demarrerControleurEvenement() {
 		if (this.lambda == null)
 		{
 			this.lambda = new Vue_Evenement(this);
 			this.lambda.majVue_TocToac_Lambda();
 			this.lambda.setResizable(false); //pas de repositionnement
-			this.lambda.setLocationRelativeTo(null); //fenetre centrée
+			this.lambda.setLocationRelativeTo(null); //fenetre centrï¿½e
 			this.lambda.setVisible (true);
 		}
 	}
 	
+	/**
+	 * Permet d'ajouter un evenement Ã  la liste des Ã©vÃ©nements
+	 * @param _e Evenement
+	 * @return void
+	 */
 	public void ajouterEvenement(Evenement _e){
 		listeEvent.add(_e);
 		identifiant ++; // on augmente l'identifiant d'un.
@@ -79,6 +96,11 @@ public class ControleurEvenement {
 		fermerDetailEvenement();
 	}
 	
+	/**
+	 * Permet de modifier un evenement 
+	 * @param _e Evenement
+	 * @return void
+	 */
 	public void modifierEvenement(Evenement _e){
 		int i = 0;
 		boolean trouve = false;
@@ -102,6 +124,10 @@ public class ControleurEvenement {
 		return this.listeEvent.elementAt(_i);
 	}
 	
+	/**
+	 * Permet d'enregistrer les evenements dans un fichier event.ser
+	 * @return void
+	 */
 	public void enregistrerEvenementsFichier(){
 		
 		File fic = new File("event.ser");
@@ -127,6 +153,10 @@ public class ControleurEvenement {
 			}		
 	}
 	
+	/**
+	 * Permet de charger les evenements d'un fichier event.ser
+	 * @return void
+	 */
 	public void chargerEvenementFichier(){
 		File fic = new File("event.ser");
 		Evenement read;
@@ -155,12 +185,17 @@ public class ControleurEvenement {
 			}
 	}
 	
+	/**
+	 * Permet de supprimer un evenements situÃ© a un rang donnÃ© (dans un vector)
+	 * @param _index
+	 * @return void
+	 */
 	public void supprimerEvenement(int _index){
 		if ( _index == -1){
-			JOptionPane.showMessageDialog(lambda, "Pas de question sélectionnée!");
+			JOptionPane.showMessageDialog(lambda, "Pas de question sï¿½lectionnï¿½e!");
 		}
 		else{
-			int rep = JOptionPane.showConfirmDialog(lambda, "Etes-vous sur de vouloir supprimer l'évènement?","Supprimer",JOptionPane.YES_NO_OPTION);
+			int rep = JOptionPane.showConfirmDialog(lambda, "Etes-vous sur de vouloir supprimer l'ï¿½vï¿½nement?","Supprimer",JOptionPane.YES_NO_OPTION);
 			if(rep == JOptionPane.YES_OPTION){
 				listeEvent.remove(_index);
 				lambda.majVue_TocToac_Lambda();
@@ -168,24 +203,37 @@ public class ControleurEvenement {
 		}
 	}
 	
+	/**
+	 * Permet d'ajouter un evenements
+	 * @return void
+	 */
 	public void ajouterEvenement (){
 		this.det = new Vue_Detail_Evenement(this, new Evenement(-1, "", new Date(), "", true));
 		this.det.majVue_Detail_Evenement();
 		this.det.setResizable(false); //pas de repositionnement
-		this.det.setLocationRelativeTo(lambda); //fenetre centrée
+		this.det.setLocationRelativeTo(lambda); //fenetre centrï¿½e
 		this.det.setModal(true);
 		this.det.setVisible (true);
 	}
 	
+	/**
+	 * Permet d'acceder au details d'un evenement
+	 * @return _e Evenement
+	 * @return void
+	 */
 	public void detailEvenement (Evenement _e){
 		this.det = new Vue_Detail_Evenement(this, _e);
 		this.det.majVue_Detail_Evenement();
 		this.det.setResizable(false); //pas de repositionnement
-		this.det.setLocationRelativeTo(lambda); //fenetre centrée
+		this.det.setLocationRelativeTo(lambda); //fenetre centrï¿½e
 		this.det.setModal(true);
 		this.det.setVisible (true);
 	}
 	
+	/**
+	 * Permet de fermer les details d'un evenement
+	 * @return void
+	 */
 	public void fermerDetailEvenement () {
 			det.setVisible(false);
 			det = null;

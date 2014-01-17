@@ -1,9 +1,18 @@
 package modele;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Evenement {
+/**
+ * La classe Evenement, attributs et getters et setters
+ * @author Groupe 24
+ */
+public class Evenement implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1639232796590027879L;
 	private int idEvenement;
 	private String nomEvenement;
 	private String lieuEvenement;
@@ -12,10 +21,23 @@ public class Evenement {
 	private Vector<Utilisateur> listeParticipantsEvenement;
 	private int nbParticipantsEvenement;
 	
+	/**
+	 * Constructeur<br>
+	 * Initialise un événement par defaut.
+	 */
 	public Evenement () {
 		this (-1, "", new Date(), "", false);
 	}
 	
+	/**
+	 * Constructeur<br>
+	 * Initialise un événement avec les paramètres suivant :
+	 * @param _idEvenement Identifiant de l'événement
+	 * @param _nomEvenement Nom de l'événement
+	 * @param _lieuEvenement Lieu de l'événement
+	 * @param _estRegulier Si l'événement est régulier ou ponctuel
+	 * @return Evenement
+	 */
 	public Evenement (int _idEvenement, String _nomEvenement, Date _dateEvenement, String _lieuEvenement, boolean _estRegulier) {
 		this.idEvenement = _idEvenement;
 		this.nomEvenement = _nomEvenement;

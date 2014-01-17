@@ -2,13 +2,14 @@ package vue;
 
 import java.awt.BorderLayout;
 
-import controleur.ControleurEvenement;
-
 import com.toedter.calendar.JCalendar;
+
+import controleur.ControleurEvenement;
 
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,14 +22,17 @@ import javax.swing.JTextField;
 
 import java.awt.GridLayout;
 
+import javax.swing.JLayeredPane;
 import javax.swing.border.TitledBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+
 import modele.Evenement;
 
+import java.awt.Color;
+import java.util.Vector;
+
 public class Vue_Detail_Evenement extends JDialog {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 51L;
 	private JTextField textField;
 	public JTextField getTextField() {
 		return textField;
@@ -47,6 +51,12 @@ public class Vue_Detail_Evenement extends JDialog {
 	private ControleurEvenement ce;
 	private boolean Ajouter;
 	private JCalendar calendar;
+	private JComboBox<Boolean> repetable;
+	
+	public void setRepetable(JComboBox<Boolean> repetable) {
+		this.repetable = repetable;
+	}
+
 	public JCalendar getCalendar() {
 		return calendar;
 	}
@@ -153,15 +163,25 @@ public class Vue_Detail_Evenement extends JDialog {
 				JPanel panel_1 = new JPanel();
 				panel_1.setBounds(0, 175, 424, 20);
 				panel.add(panel_1);
-				panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+				panel_1.setLayout(new GridLayout(0, 4, 0, 0));
 				
-				JLabel lblNombreDeParticipants = new JLabel("  Nombre de participants");
+				JLabel lblNombreDeParticipants = new JLabel("Nbre participants : ");
 				panel_1.add(lblNombreDeParticipants);
 				
 				nbPart = new JLabel();
 				nbPart.setText("0");
 				panel_1.add(nbPart);
 				
+				JLabel rep = new JLabel();
+				rep.setText("Hebdomadaire : ");
+				panel_1.add(rep);
+			
+				repetable = new JComboBox<Boolean>();
+				repetable.addItem(true);
+				repetable.addItem(false);
+				
+				panel_1.add(repetable);
+								
 				okButton.addActionListener(new ListenerDetailEvenement(this));
 				cancelButton.addActionListener(new ListenerDetailEvenement(this));
 				
@@ -170,14 +190,17 @@ public class Vue_Detail_Evenement extends JDialog {
 					textField.setText(e.getNomEvenement());
 					textField_1.setText(e.getLieuEvenement());
 					calendar.setDate(e.getDateEvenement());
+					if (e.isEstRegulier() == false){ //Afin de préselectionner le JComboBox
+						repetable.setSelectedIndex(1);
+					}
 				}
 				
 			}
 		}
 	}	
 	
-	public void majVue_Detail_Evenement(){
-		
+	public JComboBox<Boolean> getRepetable() {
+		return repetable;
 	}
-	
+
 }

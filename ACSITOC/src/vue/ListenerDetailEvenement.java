@@ -5,10 +5,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import modele.Evenement;
+
 public class ListenerDetailEvenement implements ActionListener{
 	
 	private Vue_Detail_Evenement vue;
-	//private boolean trouve = false;
+	private boolean trouve = false;
 	
 	public ListenerDetailEvenement(Vue_Detail_Evenement _vue){
 		vue = _vue;
@@ -27,7 +29,7 @@ public class ListenerDetailEvenement implements ActionListener{
 						JOptionPane.showMessageDialog(vue, "Il faut donner un lieu");
 					}
 					else{
-				//		vue.getCe().ajouterEvenement(new Evenement(vue.getCe().getIdentifiant(), vue.getTextField().getText(), vue.getCalendar().getDate() , vue.getTextField_1().getText()));
+						vue.getCe().ajouterEvenement(new Evenement(vue.getCe().getIdentifiant(), vue.getTextField().getText(), vue.getCalendar().getDate() , vue.getTextField_1().getText(), (boolean) vue.getRepetable().getSelectedItem()));
 					}
 				}
 				
@@ -41,7 +43,7 @@ public class ListenerDetailEvenement implements ActionListener{
 						JOptionPane.showMessageDialog(vue, "Il faut donner un lieu");
 					}
 					else{
-				//		vue.getCe().modifierEvenement(new Evenement(vue.getE().getIdEvenement(), vue.getTextField().getText(), vue.getCalendar().getDate() , vue.getTextField_1().getText()));
+						vue.getCe().modifierEvenement(new Evenement(vue.getE().getIdEvenement(), vue.getTextField().getText(), vue.getCalendar().getDate() , vue.getTextField_1().getText(), (boolean) vue.getRepetable().getSelectedItem()));
 					}
 				}
 			}
@@ -49,7 +51,7 @@ public class ListenerDetailEvenement implements ActionListener{
 		else{
 			int rep = JOptionPane.showConfirmDialog(vue, "Etes-vous sur de vouloir quitter?","Quitter",JOptionPane.YES_NO_OPTION);
 			if(rep == JOptionPane.YES_OPTION){
-				//vue.getCe().fermerDetailEvenement();
+				vue.getCe().fermerDetailEvenement();
 			}
 		}
 	}

@@ -17,10 +17,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
-import controleur.ControleurEvenement;
-import modele.Evenement;
-
 import com.toedter.calendar.JCalendar;
+
+import controleur.ControleurEvenement;
 
 import javax.swing.JLayeredPane;
 
@@ -28,25 +27,54 @@ import java.util.Calendar;
 import java.util.Vector;
 
 import javax.swing.border.TitledBorder;
-/** 
- * Vue pour les evenements
- * @author Groupe 24
- */
+
+import modele.Evenement;
+
 public class Vue_Evenement extends JFrame {
 
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 50L;
+	private static final long serialVersionUID = -3218801234799617340L;
 	private JCalendar c;
 	//private JFrame frame;
 	private ControleurEvenement lambda;
+	private Vector<Evenement> evenement;
+	
+	public Vector<Evenement> getEvenement() {
+		return evenement;
+	}
+
+	public void setEvenement(Vector<Evenement> evenement) {
+		this.evenement = evenement;
+	}
+
+	public ControleurEvenement getLambda() {
+		return lambda;
+	}
+
 	private JList<String> list;
+	public JList<String> getList() {
+		return list;
+	}
+	
 	private JButton btnOk;
 	private JButton btnSinscrire;
 	private JButton btnNewButton;
 	private JButton btnDtailDesvnements;
+	private JButton btnDesinscrire;
 	
+	private JButton bAjouter;
+	private JButton bSupprimer;
+	
+	public JButton getbAjouter() {
+		return bAjouter;
+	}
+
+	public JButton getbSupprimer() {
+		return bSupprimer;
+	}
+
 	public JCalendar getC() {
 		return c;
 	}
@@ -85,18 +113,14 @@ public class Vue_Evenement extends JFrame {
 	}
 */
 	/**
-	 * Constructeur<br>
-	 * Initialise et lance l'application
-	 * @param _lambda
+	 * Create the application.
 	 */
 	public Vue_Evenement(ControleurEvenement _lambda){
 		initialize(_lambda);
 	}
 
 	/**
-	 * Initialise le contenue de la fenÃªtre.
-	 * @param _lambda
-	 * @return void
+	 * Initialize the contents of the frame.
 	 */
 	private void initialize(ControleurEvenement _lambda) {
        lambda = _lambda;
@@ -118,8 +142,25 @@ public class Vue_Evenement extends JFrame {
 	       panel_1.add(layeredPane);
 	       
 	       btnOk = new JButton("OK");
-	       btnOk.setBounds(415, 237, 108, 23);
+	       btnOk.setBounds(415, 215, 108, 23);
 	       layeredPane.add(btnOk);
+	       
+	       /** Faire les tests utilisateurs pour voir si c'est un entraineur
+	        * 
+	       **/
+	       
+	       bAjouter = new JButton("Ajouter Evenement");
+	       bAjouter.setBounds(15, 250, 145, 27);
+	       layeredPane.add(bAjouter);
+	       
+	       bSupprimer = new JButton("Supprimer Evenement");
+	       bSupprimer.setBounds(165, 250, 160, 27);
+	       layeredPane.add(bSupprimer);	       
+	       
+	       /**
+	        * 
+	        * Fin des boutons spéciaux
+	        */
 	       
 	       c = new JCalendar ();
 	       c.setBounds(365, 31, 200, 200);
@@ -129,13 +170,17 @@ public class Vue_Evenement extends JFrame {
 	       list.setBounds(10, 51, 323, 155);
 	       layeredPane.add(list);
 	       
-	       JLabel lblNewLabel = new JLabel("Liste des ï¿½vï¿½nements de la semaine");
+	       JLabel lblNewLabel = new JLabel("Liste des événements de la semaine");
 	       lblNewLabel.setBounds(10, 31, 256, 14);
 	       layeredPane.add(lblNewLabel);
 	       
 	       btnSinscrire = new JButton("S'inscrire");
-	       btnSinscrire.setBounds(98, 248, 137, 27);
+	       btnSinscrire.setBounds(350, 248, 100, 27);
 	       layeredPane.add(btnSinscrire);
+	       
+	       btnDesinscrire = new JButton("Se désinscrire");
+	       btnDesinscrire.setBounds(460, 248, 125, 27);
+	       layeredPane.add(btnDesinscrire);
 	       
 	       btnDtailDesvnements = new JButton("D\u00E9tail des \u00E9v\u00E9nements");
 	       btnDtailDesvnements.setBounds(164, 215, 169, 27);
@@ -167,19 +212,16 @@ public class Vue_Evenement extends JFrame {
 	       JMenuItem mntmNewMenuItem = new JMenuItem("Quitter");
 	       mnOptions.add(mntmNewMenuItem);
 	       
-	       btnDtailDesvnements.addActionListener(new ListenerLambda(this));
-	       btnNewButton.addActionListener(new ListenerLambda(this));
-	       btnOk.addActionListener(new ListenerLambda(this));
-	       btnSinscrire.addActionListener(new ListenerLambda(this));
+	       btnDtailDesvnements.addActionListener(new ListenerEvenement(this));
+	       btnNewButton.addActionListener(new ListenerEvenement(this));
+	       btnOk.addActionListener(new ListenerEvenement(this));
+	       btnSinscrire.addActionListener(new ListenerEvenement(this));
+	       bAjouter.addActionListener(new ListenerEvenement(this));
+	       bSupprimer.addActionListener(new ListenerEvenement(this));
 	       
 	}
 	
-	
-	/**
-	 * Rafraichissement de la fenÃªtre
-	 * @return void
-	 */
-	public void majVue_TocToac_Lambda (){
+	public void majVue_Evenement (){
 		Vector<String> evnmt;
 		evnmt = new Vector<String>();
 		Evenement ev;
@@ -187,15 +229,24 @@ public class Vue_Evenement extends JFrame {
 		
 		cal = new JCalendar();
 		
+		evenement = new Vector<Evenement>();
+		
 		this.list.removeAll();
 		
 		for (int i =0; i<this.lambda.getNbEvenement(); i++)
 		{
 			ev = this.lambda.getEvenementAt(i);
 			cal.setDate(ev.getDateEvenement());
-
-			if(cal.getCalendar().get(Calendar.WEEK_OF_YEAR) == this.c.getCalendar().get(Calendar.WEEK_OF_YEAR) && cal.getCalendar().get(Calendar.YEAR) == this.c.getCalendar().get(Calendar.YEAR)){ //Si la date est ok.
-				evnmt.add(ev.getNomEvenement() + "  "+ ev.getLieuEvenement() +"  "+ev.getDateEvenement());
+			
+			if(ev.isEstRegulier() == true){
+				evnmt.add((ev.getNomEvenement() + "  "+ ev.getLieuEvenement() +"  "+ev.getDateEvenement()).substring(0, (ev.getNomEvenement() + "  "+ ev.getLieuEvenement() +"  "+ev.getDateEvenement()).length()-25));
+				evenement.add(ev);
+			}
+			else{
+				if(cal.getCalendar().get(Calendar.WEEK_OF_YEAR) == this.c.getCalendar().get(Calendar.WEEK_OF_YEAR) && cal.getCalendar().get(Calendar.YEAR) == this.c.getCalendar().get(Calendar.YEAR)){ //Si la date est ok.
+					evnmt.add((ev.getNomEvenement() + "  "+ ev.getLieuEvenement() +"  "+ev.getDateEvenement()).substring(0, (ev.getNomEvenement() + "  "+ ev.getLieuEvenement() +"  "+ev.getDateEvenement()).length()-25));
+					evenement.add(ev);
+				}
 			}
 		}
 		

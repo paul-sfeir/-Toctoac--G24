@@ -13,6 +13,11 @@ import javax.swing.JSeparator;
 
 import controleur.ControleurAdministrateur;
 
+/**
+ * Classe Vue<br>
+ * Vue dans le cas ou l'utilisateur est un administrateur.
+ * @author Groupe 24
+ */
 public class VueAdministrateur extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton boutonUtilisateurs, boutonEvenements;
@@ -22,6 +27,10 @@ public class VueAdministrateur extends JFrame implements ActionListener {
 	private JSeparator separateur;
 	private ControleurAdministrateur controleurA;
 	
+	/**
+	 * Vue pour un administrateur<br>
+	 * @param _ca Controleur administrateur
+	 */
 	public VueAdministrateur (ControleurAdministrateur _ca) {
 		this.setBounds(700, 500, 500, 125);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,10 +38,10 @@ public class VueAdministrateur extends JFrame implements ActionListener {
 		this.controleurA = _ca;
 		
 		this.boutonUtilisateurs = new JButton("Afficher la liste des utilisateurs");
-		this.boutonEvenements = new JButton("Afficher la liste des évènements");
+		this.boutonEvenements = new JButton("Afficher la liste des ï¿½vï¿½nements");
 		this.barreDeMenu = new JMenuBar();
 		this.menuOptions = new JMenu("Options");
-		this.itemMenuDeconnexion = new JMenuItem("Déconnexion");
+		this.itemMenuDeconnexion = new JMenuItem("Dï¿½connexion");
 		this.separateur = new JSeparator();
 		this.itemMenuQuitter = new JMenuItem("Quitter");
 		

@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
-
+/**
+ * Classe ecouteur pour les utilisateurs lambda
+ * @author Groupe 24
+ */
 public class ListenerLambda implements ActionListener {
 	
 	private Vue_Evenement vue;
@@ -18,7 +21,7 @@ public class ListenerLambda implements ActionListener {
 		
 		if (e.getSource().equals(vue.getBtnDtailDesvnements())){
 			if(vue.getList().getSelectedIndex() == -1){
-				JOptionPane.showMessageDialog(vue, "Sélectionnez un évènement");
+				JOptionPane.showMessageDialog(vue, "Sï¿½lectionnez un ï¿½vï¿½nement");
 			}else{
 				vue.getLambda().detailEvenement(vue.getLambda().getEvenementAt(vue.getList().getSelectedIndex()));
 			}
@@ -38,7 +41,7 @@ public class ListenerLambda implements ActionListener {
 					else{
 						if (e.getSource().equals(vue.getbSupprimer())){
 							if(vue.getList().getSelectedIndex() == -1){
-								JOptionPane.showMessageDialog(vue, "Sélectionnez un évènement");
+								JOptionPane.showMessageDialog(vue, "Sï¿½lectionnez un ï¿½vï¿½nement");
 							}else{
 								vue.getLambda().supprimerEvenement(vue.getList().getSelectedIndex());
 							}

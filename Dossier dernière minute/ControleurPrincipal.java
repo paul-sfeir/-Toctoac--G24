@@ -6,6 +6,7 @@ import vue.*;
 /**
  * Classe Controleur<br>
  * Controleur principal, il gére toutes les vues.
+ * @author Groupe 24
  */
 public class ControleurPrincipal {
 	public static void main(String[] args) {

@@ -3,9 +3,13 @@ package controleur;
 import vue.*;
 //import modele.*;
 
+/**
+ * Classe Controleur<br>
+ * Controleur principal, il gÃ©re toutes les vues.
+ */
 public class ControleurPrincipal {
 	public static void main(String[] args) {
-		/* création du premier utilisateur
+		/* crï¿½ation du premier utilisateur
 		Utilisateur Admin = new Utilisateur(1, "BigBrother","SWAG", 1);
 		try {
 		FileOutputStream fichier = new FileOutputStream("personne.ser");

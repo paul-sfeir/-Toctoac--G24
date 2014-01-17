@@ -1,6 +1,6 @@
 Projet ACSI S3 Toctoac
 
-Le projet est dans projet.zip
+Le projet .jar est dans Version Finale runnable avec 2 fichiers pour lui permettre de fonctionner.
 ---
 D�veloppeurs:
 William Grabie

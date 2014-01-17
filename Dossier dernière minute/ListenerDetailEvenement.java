@@ -7,6 +7,10 @@ import javax.swing.JOptionPane;
 
 import modele.Evenement;
 
+/**
+ * Classe ecouteur des details evenements
+ * @author Groupe 24
+ */
 public class ListenerDetailEvenement implements ActionListener{
 	
 	private Vue_Detail_Evenement vue;
@@ -22,7 +26,7 @@ public class ListenerDetailEvenement implements ActionListener{
 		if (arg0.getSource().equals(vue.getOkButton())){
 			if(vue.isAjouter() == true){
 				if(vue.getTextField().getText().equals("")){
-					JOptionPane.showMessageDialog(vue, "Il faut un nom à l'évènement");
+					JOptionPane.showMessageDialog(vue, "Il faut un nom ï¿½ l'ï¿½vï¿½nement");
 				}
 				else{
 					if(vue.getTextField_1().getText().equals("")){
@@ -36,7 +40,7 @@ public class ListenerDetailEvenement implements ActionListener{
 			}
 			else{
 				if(vue.getTextField().getText().equals("")){
-					JOptionPane.showMessageDialog(vue, "Il faut un nom à l'évènement");
+					JOptionPane.showMessageDialog(vue, "Il faut un nom ï¿½ l'ï¿½vï¿½nement");
 				}
 				else{
 					if(vue.getTextField_1().getText().equals("")){

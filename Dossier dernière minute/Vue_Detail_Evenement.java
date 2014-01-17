@@ -31,6 +31,10 @@ import modele.Evenement;
 import java.awt.Color;
 import java.util.Vector;
 
+/**
+ * Classe vue de detail evenement
+ * @author Groupe 24
+ */
 public class Vue_Detail_Evenement extends JDialog {
 	private JTextField textField;
 	public JTextField getTextField() {
@@ -83,13 +87,16 @@ public class Vue_Detail_Evenement extends JDialog {
 	}
 
 	/**
-	 * Create the dialog.
+	 * Constructeur<br>
+	 * Initialise la vue des details Ã©vÃ©nements <br>
+	 * @param _ce Controleur evenement
+	 * @param _e Evenement
 	 */
 	public Vue_Detail_Evenement(ControleurEvenement _ce, Evenement _e) {
 		
 		ce = _ce;
 		e = _e;
-		Ajouter= true; // On l'initialise à true car on part du principe que c'est un ajout et on change le booléen si ce n'est pas le cas.
+		Ajouter= true; // On l'initialise ï¿½ true car on part du principe que c'est un ajout et on change le boolï¿½en si ce n'est pas le cas.
 		
 		setBounds(100, 100, 450, 321);
 		getContentPane().setLayout(new BorderLayout());
@@ -168,7 +175,7 @@ public class Vue_Detail_Evenement extends JDialog {
 				okButton.addActionListener(new ListenerDetailEvenement(this));
 				cancelButton.addActionListener(new ListenerDetailEvenement(this));
 				
-				if(_e.getIdEvenement() != -1){ //Si on modifie un évènement
+				if(_e.getIdEvenement() != -1){ //Si on modifie un ï¿½vï¿½nement
 					Ajouter = false; // on est en modification d'evenement
 					textField.setText(e.getNomEvenement());
 					textField_1.setText(e.getLieuEvenement());
@@ -178,7 +185,10 @@ public class Vue_Detail_Evenement extends JDialog {
 			}
 		}
 	}	
-	
+	/**
+	 * Rafraichi la vue des details d'un evenements
+	 * @return void
+	 */
 	public void majVue_Detail_Evenement(){
 		
 	}
